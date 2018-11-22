@@ -1,6 +1,8 @@
 # What this image is about?
 
-This image is designed to run Service Fabric oriented unit-tests (.NET Core) on Linux ([DockerHub](https://hub.docker.com/r/coherentsolutions/service-fabric-run-tests/)). 
+This image is designed to run Service Fabric oriented unit-tests (.NET Core) on Linux.
+
+The latest version can be found on [DockerHub](https://hub.docker.com/r/coherentsolutions/service-fabric-run-tests/). 
 
 Why is that needed?
 
