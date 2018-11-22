@@ -46,3 +46,7 @@ public class MyStatefulServiceTests
 Despite it's simplicity this unit-test requires installed `servicefabric` runtime and `servicefabricsdkcommon` package installed to run. These packages cannot be installed as part of container build [see issue](https://github.com/Azure/service-fabric-issues/issues/1226).
 
 The image solves the exactly this problem by performing manual copy of the required files from the packages.
+
+# Versioning
+
+The image use **runtime.ver-dotnetsdk.ver** version format i.e. image tag 1.3.0-2.1 indicates that current image has binaries from **servicefabric=1.3.0 runtime** and has **dotnet-2.1-sdk** installed.
