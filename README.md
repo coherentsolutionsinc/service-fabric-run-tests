@@ -1,10 +1,6 @@
-# service-fabric-run-tests
-
-The images can be found on [DockerHub](https://hub.docker.com/r/coherentsolutions/service-fabric-run-tests/).
-
 # What this image is about?
 
-This image is designed to run Service Fabric oriented unit-tests (.NET Core) on Linux. 
+This image is designed to run Service Fabric oriented unit-tests (.NET Core) on Linux ([DockerHub](https://hub.docker.com/r/coherentsolutions/service-fabric-run-tests/)). 
 
 Why is that needed?
 
