@@ -51,4 +51,4 @@ The image solves the exactly this problem by performing manual copy of the requi
 
 # Versioning
 
-The image use **runtime.ver-dotnetsdk.ver** version format i.e. image tag 1.3.0-2.1 indicates that current image has binaries from **servicefabric=1.3.0 runtime** and has **dotnet-2.1-sdk** installed.
+The image use **runtime.ver-dotnetsdk.ver** version format i.e. image tag 6.3.129.1-2.1 indicates that current image has binaries from **servicefabric=6.3.129.1 runtime** and has **dotnet-2.1-sdk** installed.
