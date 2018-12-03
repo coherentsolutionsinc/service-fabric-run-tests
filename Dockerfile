@@ -9,10 +9,8 @@ RUN apt-get update && \
     apt-get install --assume-yes apt-transport-https && \
     echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list && \
     apt-get update && \
-    apt-get download servicefabric=6.3.129.1 && \
-    apt-get download servicefabricsdkcommon=1.3.0 && \
-    dpkg -x servicefabric_6.3.129.1_amd64.deb . && \
-    dpkg -x servicefabricsdkcommon_1.3.0_amd64.deb .
+    apt-get download servicefabric=6.4.625.1 && \
+    dpkg -x servicefabric_6.4.625.1_amd64.deb .
 
 RUN mkdir /etc/servicefabric && \
     echo -n /home/sfuser/sfdevcluster/data > /etc/servicefabric/FabricDataRoot && \
