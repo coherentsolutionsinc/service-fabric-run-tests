@@ -12,6 +12,12 @@ RUN apt-get update && \
     apt-get download servicefabric=6.4.625.1 && \
     dpkg -x servicefabric_6.4.625.1_amd64.deb .
 
+# deleting unnecessary files to reduce image size
+RUN find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "*.exe" -type f -delete && \
+    find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "*.pdb" -type f -delete && \
+    find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "SFBlockStoreService" -type f -delete && \
+    find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "__FabricSystem_App*" -type d -exec rm -rf {} +;
+
 RUN mkdir /etc/servicefabric && \
     echo -n /home/sfuser/sfdevcluster/data > /etc/servicefabric/FabricDataRoot && \
     echo -n /home/sfuser/sfdevcluster/data/log > /etc/servicefabric/FabricLogRoot && \
