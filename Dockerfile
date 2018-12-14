@@ -9,8 +9,8 @@ RUN apt-get update && \
     apt-get install --assume-yes apt-transport-https && \
     echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list && \
     apt-get update && \
-    apt-get download servicefabric=6.4.625.1 && \
-    dpkg -x servicefabric_6.4.625.1_amd64.deb .
+    apt-get download servicefabric=6.3.129.1 && \
+    dpkg -x servicefabric_6.3.129.1_amd64.deb .
 
 # deleting unnecessary files to reduce image size
 RUN find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "*.exe" -type f -delete && \
@@ -41,7 +41,7 @@ ADD https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.d
 RUN dpkg -i packages-microsoft-prod.deb
 
 RUN apt-get update && \
-    apt-get install --assume-yes dotnet-sdk-2.1
+    apt-get install --assume-yes dotnet-sdk-2.2
 
 COPY --from=build /etc/servicefabric /etc/servicefabric
 COPY --from=build /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code
