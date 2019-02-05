@@ -59,7 +59,7 @@ The image solves the exactly this problem by performing manual copy of the requi
     The `latest-light` tag is the same as `runtime.ver-light` with the latest available version of runtime.
 * **<runtime.ver-dotnetsdk.ver>**
 
-    When image is tagged as `runtime.ver-dotnetsdk.ver` format i.e. images like `6.3.129.1-2.1` this indicates that current image has binaries from `servicefabric=6.3.129.1 runtime` and has `dotnet-2.1-sdk` installed.
+    When image is tagged as `runtime.ver-dotnetsdk.ver` format i.e. images like `6.4.634.1-2.2` this indicates that current image has binaries from `servicefabric=6.4.634.1 runtime` and has `dotnet-2.2-sdk` installed.
 * **<runtime.ver-light>**
 
-    When image is tagged as `runtime.ver-light` format i.e. image tag `6.3.129.1-light` this indicates that current image has binaries from `servicefabric=6.3.129.1 runtime` installed. The purpose of this image is to provide more flexibility for scenarios where version of dotnet sdk can vary significantly.
+    When image is tagged as `runtime.ver-light` format i.e. image tag `6.4.634.1-light` this indicates that current image has binaries from `servicefabric=6.4.634.1 runtime` installed. The purpose of this image is to provide more flexibility for scenarios where version of dotnet sdk can vary significantly.
