@@ -63,3 +63,9 @@ The image solves the exactly this problem by performing manual copy of the requi
 * **<runtime.ver-light>**
 
     When image is tagged as `runtime.ver-light` format i.e. image tag `6.4.634.1-light` this indicates that current image has binaries from `servicefabric=6.4.634.1 runtime` installed. The purpose of this image is to provide more flexibility for scenarios where version of dotnet sdk can vary significantly.
+    
+# Authors
+
+This project is owned and maintained by [Coherent Solutions][1].
+
+[1]:  https://www.coherentsolutions.com/ "Coherent Solutions Inc."
