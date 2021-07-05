@@ -5,13 +5,10 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 
 RUN apt-get update && \
-    apt-get install --assume-yes wget curl lsb-release apt-transport-https
+    apt-get install --assume-yes curl apt-transport-https
 
-RUN wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb && \
-    dpkg -i packages-microsoft-prod.deb
-
-RUN curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add - && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+ADD https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
 
 RUN apt-get update && \
     apt-get download servicefabric=7.2.476.1 && \
@@ -35,10 +32,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893 && \
     apt-get update && \
-    apt-get install --assume-yes apt-transport-https && \
-    apt-get install --assume-yes libssh2-1 && \
-    apt-get install --assume-yes libxml2 && \
-    apt-get install --assume-yes cgroup-bin
+    apt-get install --assume-yes apt-transport-https libssh2-1 libxml2 cgroup-bin
 
 COPY --from=build /etc/servicefabric /etc/servicefabric
 COPY --from=build /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code
