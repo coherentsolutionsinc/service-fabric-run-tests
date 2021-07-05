@@ -32,7 +32,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893 && \
     apt-get update && \
-    apt-get install --assume-yes apt-transport-https libssh2-1 libxml2 cgroup-bin
+    apt-get install --assume-yes apt-transport-https libssh2-1 libxml2 cgroup-bin liblttng-ust0
 
 COPY --from=build /etc/servicefabric /etc/servicefabric
 COPY --from=build /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code /opt/microsoft/servicefabric/bin/Fabric/Fabric.Code
