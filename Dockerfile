@@ -2,15 +2,20 @@ FROM ubuntu:16.04 AS build
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
-RUN apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893 && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 
 RUN apt-get update && \
-    apt-get install --assume-yes apt-transport-https && \
-    echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list && \
-    apt-get update && \
-    apt-get download servicefabric=7.1.410.1 && \
-    dpkg -x servicefabric_7.1.410.1_amd64.deb .
+    apt-get install --assume-yes wget curl lsb-release apt-transport-https
+
+RUN wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb
+
+RUN curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add - && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+RUN apt-get update && \
+    apt-get download servicefabric=7.2.476.1 && \
+    dpkg -x servicefabric_7.2.476.1_amd64.deb .
 
 # deleting unnecessary files to reduce image size
 RUN find "/opt/microsoft/servicefabric/bin/Fabric/Fabric.Code" -name "*.exe" -type f -delete && \
